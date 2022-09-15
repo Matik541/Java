@@ -15,9 +15,9 @@ hs_err_pid*
 .settings/
 
 # Intellij
-.idea/
-*.iml
-*.iws
+*/.idea/
+*/*.iml
+*/*.iws
 
 # Mac
 .DS_Store
