@@ -12,6 +12,8 @@ public class Main {
 		System.out.printf("Bet your numbers (%d): \n", limit);
 		List<Integer> guesses = guessesList(limit);
 		List<Integer> correct = correctGuesses(numbers, guesses);
+		Collections.sort(guesses);
+		Collections.sort(correct);
 		System.out.println("You bet on: " + guesses + "\nYou guessed correctly: " + correct + "\nYou guessed " + correct.size() + " numbers correctly");
 	}
 
