@@ -28,7 +28,7 @@ public class Main {
 			System.out.print("Guesses left: " + (limit--) + " | Enter a number: ");
 			int guess = scanner.nextInt();
 
-			if (guesses.contains(guess) && guesses.size() > 0) {
+			if (guesses.contains(guess)) {
 				System.out.println("You already guessed that number!");
 				limit++;
 				continue;
@@ -50,7 +50,6 @@ public class Main {
 				System.out.println("\nYou run out of guesses! You lost!\nBut you guessed " + guessed.size() + " numbers!\n" + guessed);
 				break;
 			}
-			// display  guesses
 		}
 	}
 }
