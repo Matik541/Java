@@ -48,17 +48,17 @@ public class ex2209 {
 
     List<Integer> evenList = new ArrayList<>();
     List<Integer> oddList = new ArrayList<>();
-    for (int i = 0; i < random.length; i++) {
-      if (random[i] % 2 == 0)
-        evenList.add(random[i]);
+    for (int k : random) {
+      if (k % 2 == 0)
+        evenList.add(k);
       else
-        oddList.add(random[i]);
+        oddList.add(k);
     }
 
     List<Integer> uniqueList = new ArrayList<>();
-    for (int i = 0; i < random.length; i++)
-      if (!uniqueList.contains(random[i]))
-        uniqueList.add(random[i]);
+    for (int k : random)
+      if (!uniqueList.contains(k))
+        uniqueList.add(k);
 
     System.out.println("Even numbers: " + evenList);
     System.out.println("Odd numbers: " + oddList);
