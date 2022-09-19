@@ -4,13 +4,15 @@ import java.util.*;
 
 public class ex2209 {
   public static void main(String[] args) {
+
+    // 1.
     double[] array = new double[10];
     for (int i = 0; i < array.length; i++)
       array[i] = Math.sqrt(i);
 
     System.out.println(Arrays.toString(array));
 
-
+    // 2.
     int[] fibonacci = new int[40];
     fibonacci[0] = 0;
     fibonacci[1] = 1;
@@ -38,7 +40,7 @@ public class ex2209 {
     } else
       System.out.println("Nearest number is: " + fibonacci[index]);
 
-
+    // 3.
     int[] random = new int[100];
     for (int i = 0; i < random.length; i++)
       random[i] = (int) (Math.random() * 100 + 1);
@@ -61,8 +63,9 @@ public class ex2209 {
     System.out.println("Even numbers: " + evenList);
     System.out.println("Odd numbers: " + oddList);
     System.out.println("Unique numbers: " + uniqueList);
+    System.out.println("Count of unique numbers: " + uniqueList.size());
 
-
+    // 4.
     Arrays.sort(random);
     System.out.println("Sorted array: " + Arrays.toString(random));
     double avg = 0;
@@ -86,18 +89,21 @@ public class ex2209 {
 
     System.out.println("Dominant: " + max);
 
+
+    // 5.
+    boolean[] primaryArray = new boolean[1000];
+    Arrays.fill(primaryArray, true);
+    for (int i = 2; i < Math.sqrt(primaryArray.length); i++)
+      if (primaryArray[i])
+        for (int j = i * i; j < primaryArray.length; j += i)
+          primaryArray[j] = false;
+
+    System.out.println("Enter the starting number: ");
+    int start = keyboard.nextInt();
+    System.out.println("Enter the ending number: ");
+    int end = keyboard.nextInt();
+    for (int i = start; i <= end; i++)
+      if (primaryArray[i])
+        System.out.print(i + " ");
   }
 }
-/*
-
-
-Podaj, ile różnych liczb wylosowano.
-
-Zadanie 4.
-Wykorzystaj tablicę z zadania 3. z wylosowanymi wartościami. Posortuj tablicę. Znajdź medianę (wartość środkową tablicy), dominantę (wartość najczęściej występującą w tablicy) i wartość średnią wartości zapisanych w tablicy.
-
-Zadanie 5.
-Wygeneruj tablicę liczb pierwszych mniejszych od 1000. Wykorzystaj do tego sito Eratostenesa. Wypisz wszystkie liczby pierwsze z zakresu od x do y,
-
-
- */
