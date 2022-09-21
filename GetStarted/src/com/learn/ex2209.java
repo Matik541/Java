@@ -17,7 +17,7 @@ public class ex2209 {
     fibonacci[0] = 0;
     fibonacci[1] = 1;
     for (int i = 2; i < fibonacci.length; i++)
-      fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
+      fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
 
     System.out.println(Arrays.toString(fibonacci));
 
@@ -29,9 +29,9 @@ public class ex2209 {
     int right = fibonacci.length;
     int middle = (left + right) / 2;
     while (left <= right) {
-      if(right == left) {
-        if (Math.abs(fibonacci[middle-1] - input) < Math.abs(fibonacci[middle] - input))
-          middle = middle-1;
+      if (right == left) {
+        if (Math.abs(fibonacci[middle - 1] - input) < Math.abs(fibonacci[middle] - input))
+          middle = middle - 1;
         break;
       }
       if (fibonacci[middle] < input)
@@ -39,10 +39,8 @@ public class ex2209 {
       else if (fibonacci[middle] == input) {
         System.out.println("The number is in the sequence");
         break;
-      }
-      else
+      } else
         right = middle - 1;
-
       middle = (left + right) / 2;
     }
     System.out.println("The nearest number is " + fibonacci[middle]);
@@ -79,7 +77,7 @@ public class ex2209 {
       avg += j;
     avg /= random.length;
     System.out.println("Average: " + avg);
-    System.out.println("Mediana: " + random[random.length/2]);
+    System.out.println("Mediana: " + random[random.length / 2]);
 
     Map<Integer, Integer> frequency = new HashMap<>();
     for (int value : random) {
