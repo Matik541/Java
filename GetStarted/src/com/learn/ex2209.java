@@ -31,16 +31,17 @@ public class ex2209 {
     while (left <= right) {
       if (right == left) {
         if (Math.abs(fibonacci[middle - 1] - input) < Math.abs(fibonacci[middle] - input))
-          middle = middle - 1;
+        {middle = middle - 1;}
         break;
       }
       if (fibonacci[middle] < input)
         left = middle + 1;
-      else if (fibonacci[middle] == input) {
+      else if (fibonacci[middle] > input)
+        right = middle - 1;
+      else {
         System.out.println("The number is in the sequence");
         break;
-      } else
-        right = middle - 1;
+      }
       middle = (left + right) / 2;
     }
     System.out.println("The nearest number is " + fibonacci[middle]);
@@ -70,14 +71,34 @@ public class ex2209 {
     System.out.println("Count of unique numbers: " + uniqueList.size());
 
     // 4.
-    Arrays.sort(random);
+    // sort array with selection sort
+    for (int i = 0; i < random.length; i++) {
+      int min_i = i;
+      for (int j = i + 1; j < random.length; j++) {
+        if (random[j] < random[min_i]) {
+          min_i = j;
+        }
+      }
+      if (i != min_i) {
+        random[i] = random[i] ^ random[min_i];
+        random[min_i] = random[i] ^ random[min_i];
+        random[i] = random[i] ^ random[min_i];
+      }
+    }
+
     System.out.println("Sorted array: " + Arrays.toString(random));
     double avg = 0;
     for (int j : random)
       avg += j;
     avg /= random.length;
     System.out.println("Average: " + avg);
-    System.out.println("Mediana: " + random[random.length / 2]);
+
+    int mid = (
+      (random.length % 2 == 0) ?
+        (random[random.length / 2] + random[random.length / 2 - 1]) / 2 :
+        random[random.length / 2]);
+
+    System.out.println("Mediana: " + mid);
 
     Map<Integer, Integer> frequency = new HashMap<>();
     for (int value : random) {
@@ -86,12 +107,24 @@ public class ex2209 {
       else
         frequency.put(value, 1);
     }
-    int max = 0;
-    for (int value : frequency.values())
-      if (value > max)
-        max = value;
 
-    System.out.println("Dominant: " + max);
+    // calculate most frequent number
+    // check if there are more than one number with the same frequency
+    int max = 0;
+    Set<Integer> maxKeys = new HashSet<>();
+    for (Map.Entry<Integer, Integer> entry : frequency.entrySet()) {
+      if (entry.getValue() > max) {
+        max = entry.getValue();
+        maxKeys.clear();
+        maxKeys.add(entry.getKey());
+      }
+      else if (entry.getValue() == max) {
+        maxKeys.add(entry.getKey());
+      }
+    }
+
+
+    System.out.println("Dominant(s): " + maxKeys.toString() + " ("+max+" times)" );
 
 
     // 5.
@@ -106,6 +139,11 @@ public class ex2209 {
     int start = keyboard.nextInt();
     System.out.println("Enter the ending number: ");
     int end = keyboard.nextInt();
+
+    if (start > end) {
+
+    }
+
     for (int i = start; i <= end; i++)
       if (primaryArray[i])
         System.out.print(i + " ");

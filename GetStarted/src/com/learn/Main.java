@@ -1,10 +1,12 @@
 package com.learn;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import static com.learn.ex1509.*;
+import java.util.*;
+
 
 public class Main {
     public static void main(String[] args) {
+
 //          Guess a number :D
         System.out.println("choose the difficulty level: \n1. Easy 5 numbers \n2. Medium 10 numbers \n3. Hard 15 numbers \n4. Impossible 20 numbers ");
         Scanner scans = new Scanner(System.in);
