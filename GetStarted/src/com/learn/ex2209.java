@@ -25,20 +25,27 @@ public class ex2209 {
     Scanner keyboard = new Scanner(System.in);
     int input = keyboard.nextInt();
 
-    int index = Arrays.binarySearch(fibonacci, input);
-    if (index < 0) {
-      index = -index - 1;
-      if (index == fibonacci.length)
-        System.out.println("Nearest number is: " + fibonacci[index-1]);
-      else if (index == 0)
-        System.out.println("Nearest number is: " + fibonacci[index]);
-      else {
-        int left = fibonacci[index-1];
-        int right = fibonacci[index];
-        System.out.println("Nearest number is: " + ((input - left) < (right - input) ? left : right));
+    int left = 0;
+    int right = fibonacci.length;
+    int middle = (left + right) / 2;
+    while (left <= right) {
+      if(right == left) {
+        if (Math.abs(fibonacci[middle-1] - input) < Math.abs(fibonacci[middle] - input))
+          middle = middle-1;
+        break;
       }
-    } else
-      System.out.println("Nearest number is: " + fibonacci[index]);
+      if (fibonacci[middle] < input)
+        left = middle + 1;
+      else if (fibonacci[middle] == input) {
+        System.out.println("The number is in the sequence");
+        break;
+      }
+      else
+        right = middle - 1;
+
+      middle = (left + right) / 2;
+    }
+    System.out.println("The nearest number is " + fibonacci[middle]);
 
     // 3.
     int[] random = new int[100];
@@ -55,10 +62,9 @@ public class ex2209 {
         oddList.add(k);
     }
 
-    List<Integer> uniqueList = new ArrayList<>();
+    Set<Integer> uniqueList = new HashSet<>();
     for (int k : random)
-      if (!uniqueList.contains(k))
-        uniqueList.add(k);
+      uniqueList.add(k);
 
     System.out.println("Even numbers: " + evenList);
     System.out.println("Odd numbers: " + oddList);
