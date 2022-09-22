@@ -33,6 +33,7 @@ target/
 *.class
 bin/
 out/
+*/out
 build/
 /bin1/
 java/build/**
