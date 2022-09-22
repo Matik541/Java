@@ -127,6 +127,6 @@ public class Main {
 		int max = Collections.max(sequence);
 		int index = sequence.indexOf(max);
 
-
+		return Arrays.copyOfRange(array, index - max + 1, index + 1);
 	}
 }
