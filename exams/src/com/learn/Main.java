@@ -8,7 +8,7 @@ public class Main {
 		int[] random = fill_random(50);
 		System.out.println(Arrays.toString(random));
 
-		List<Integer> unique = unique_list(random);
+		Set<Integer> unique = unique_set(random);
 		System.out.println(unique.toString());
 
 		List<Integer> primes = primes_list(unique);
@@ -37,11 +37,11 @@ public class Main {
 	 * @param array array to get all unique values
 	 * @return unique List
 	 */
-	public static List<Integer> unique_list(int[] array) {
-		List<Integer> unique = new ArrayList<>();
-		for (int num : array)
-			if (!unique.contains(num))
-				unique.add(num);
+	public static Set<Integer> unique_set(int[] array) {
+		Set<Integer> unique = new HashSet<>();
+		for (int k : array)
+			unique.add(k);
+
 		return unique;
 	}
 
@@ -50,7 +50,7 @@ public class Main {
 	 * @param list List of unique numbers
 	 * @return List of primes
 	 */
-	public static List<Integer> primes_list(List<Integer> list) {
+	public static List<Integer> primes_list(Set<Integer> list) {
 		List<Integer> primes = new ArrayList<>();
 		for (int num : list) {
 			boolean isPrime = true;
