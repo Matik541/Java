@@ -26,9 +26,8 @@ public class Main {
 	 */
 	public static int[] fill_random(int bound) {
 		int[] random = new int[20];
-		for (int i = 0; i < random.length; i++) {
+		for (int i = 0; i < random.length; i++) 
 			random[i] = (int) (Math.random() * bound + 1);
-		}
 		return random;
 	}
 
@@ -76,11 +75,9 @@ public class Main {
 	public static List<Integer> primes_list(Set<Integer> list, boolean sort) {
 		List<Integer> sieve = erastotenes_list(50);
 		List<Integer> primes = new ArrayList<>();
-		for (int i : list) {
-			if (sieve.contains(i)) {
+		for (int i : list) 
+			if (sieve.contains(i)) 
 				primes.add(i);
-			}
-		}
 		if (sort)
 			Collections.sort(primes);
 		return primes;
@@ -116,13 +113,11 @@ public class Main {
 
 		List<Integer> sequence = new ArrayList<>();
 		sequence.add(1);
-		for (int i = 1; i < array.length; i++) {
-			if (array[i] > array[i - 1]) {
+		for (int i = 1; i < array.length; i++) 
+			if (array[i] > array[i - 1]) 
 				sequence.add(sequence.get(i - 1) + 1);
-			} else {
+			else 
 				sequence.add(1);
-			}
-		}
 
 		int max = Collections.max(sequence);
 		int index = sequence.indexOf(max);
