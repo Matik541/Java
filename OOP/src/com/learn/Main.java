@@ -1,15 +1,19 @@
 package com.learn;
+
+import java.util.*;
+
 public class Main {
 	public static void main(String[] args) {
+//        brak modyfikatora dostepu dostep wewnatrz pakietu
+//        nie mozemy tworzyc person, bo jest klasa abstrakcyjna
+//        protekted wewnatrz klasy dziedzikow i paketu
+//        w konstruktorze klasy potomnej super piwinien byc pierwszym
+		Student janek = new Student("Jas", 11);
 
-		Person John = new Person("John", 30);
-		John.sayHello();
-		System.out.println(John);
+		System.out.println(janek);
 
+		Teacher teacher = new HeadTeacher("Name", 22, "przedmioty zawodowe", "3A");
 
-		Student Jane = new Student("Jane", 20, "A");
-		Jane.sayHello();
-		System.out.println(Jane);
-
+		System.out.println(teacher);
 	}
 }

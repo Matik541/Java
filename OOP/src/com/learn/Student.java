@@ -1,25 +1,25 @@
 package com.learn;
 
+import java.util.*;
+
 public class Student extends Person {
+	private int nrOfStudent;
+	public static int countOfStudents;
 
-	private static int studentID;
-	private String grade;
-
-	public Student(String name, int age, String grade) {
+	public Student(String name, int age) {
+//        wywolanie konstruktora klasy bazowej(rodzica)
 		super(name, age);
-		this.grade = grade;
-		studentID++;
+
+		countOfStudents++;
+		this.nrOfStudent = countOfStudents;
 	}
 
-	public String getGrade() {
-		return grade;
-	}
-
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
-
+	//    override nadpisanie istniejacej metody
+	@Override
 	public String toString() {
-		return "Student [grade=" + grade + ", name=" + getName() + ", age=" + getAge() + "]";
+		return "Student " +
+						" imie=" + getName() +
+						" wiek=" + getAge() +
+						" nrOfStudent=" + nrOfStudent;
 	}
 }
