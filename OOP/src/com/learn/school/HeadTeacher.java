@@ -1,6 +1,4 @@
-package com.learn;
-
-import java.util.*;
+package com.learn.school;
 
 public final class HeadTeacher extends Teacher {
 

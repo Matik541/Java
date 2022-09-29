@@ -1,8 +1,6 @@
-package com.learn;
+package com.learn.school;
 
-import java.util.*;
-
-public sealed class Teacher extends Person permits HeadTeacher {
+public sealed class Teacher extends Person implements OnDuty  permits HeadTeacher {
 	private String subject;
 	public Teacher(String name, int age, String subject) {
 		super(name, age);
@@ -23,5 +21,13 @@ public sealed class Teacher extends Person permits HeadTeacher {
 						" imie=" + getName() +
 						" wiek=" + getAge() +
 						" przedmiot=" + subject;
+	}
+
+	@Override
+	public void DoDuty() {
+		System.out.println("Teacher " + getName() + " is doing his duty" +
+						"\nChecks the corridors" +
+						"\nChecks the toilets" +
+						"\nChecks the playground" );
 	}
 }

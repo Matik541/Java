@@ -1,4 +1,4 @@
-package com.learn;
+package com.learn.school;
 
 import java.util.*;
 abstract class Person {
@@ -10,21 +10,18 @@ abstract class Person {
 		this.age = age;
 	}
 
-	public String getName() {
-		return name;
-	}
+	public String getName() {	return name; }
 
 	public void setName(String name) {
-		this.name = name;
+		if (name.matches("\\b[A-Z]{1}[a-z]{2,}"))
+			this.name = name;
 	}
 
 	public int getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+	public void setAge(int age) { this.age = age;	}
 
 	@Override
 	public String toString() {
