@@ -31,4 +31,9 @@ public class Library {
 		librarians.add(new Librarian(person.getName(), person.getSurname(), person.getBirthDate(), dateOfEmployment));
 		System.out.println("Librarian " + person.getName() + " " + person.getSurname() + " added to library");
 	}
+
+	@Override
+	public String toString() {
+		return "[\n" + getReaders() + "\n" + getBooks() + "\n" + getLibrarians() + "]";
+	}
 }
